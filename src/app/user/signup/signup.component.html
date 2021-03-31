@@ -1,0 +1,94 @@
+<div class="parent-div">
+    <div class="form-container">
+        <form #signupForm ="ngForm" id ="signup-form">
+            <a class="close-btn" [routerLink]="['/home']"><span>&times;</span></a>
+            <div class ="h1">Sign Up</div>
+            <p class="routing-text">Already have an account?<a [routerLink]="['/home/login']" class="routing-link">Log In</a></p>
+            <div class="row">
+                <div class="col-md-6">
+                <div class="row-custom">
+                    <label for="userName">Enter Name:</label>
+                    <div class="error-message" *ngIf="userName.touched && !userName.valid">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    <div *ngIf="userName.errors.minlength">
+                        The name is too short
+                    </div>
+                    <div *ngIf="userName.errors.required">This field cannot be empty</div>
+                    </div>
+                    </div>
+                    <input type="text" 
+                    class="form-control" 
+                    required minlength="5" id="userName"
+                    ngModel name="userName" #userName="ngModel"
+                    [(ngModel)] = "user.userName">    
+                </div>
+           
+                <div class="col-md-6">
+                <div class="row-custom">
+                    <label for="email">Your Email:</label>
+                    <div class="error-message" *ngIf="email.touched && !email.valid">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    <div   *ngIf="email.errors.required">This field cannot be empty</div>
+                    <div  *ngIf="email.errors.pattern">Invalid Email Id</div>
+                    </div>
+                    <div class = "error-message" *ngIf ="isEmailUsed == true"><i class="bi bi-exclamation-triangle-fill"></i>
+                    Uh-Ohh! Email id already exists.</div>
+                    </div>
+                    <input type="email" 
+                    class="form-control" 
+                    id="email"
+                    required
+                    pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+                    ngModel name="email" #email="ngModel"
+                    [(ngModel)] = "user.userEmailId">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row-custom">
+                        <label for="password">Your Password:</label>
+                        <div class="error-message" *ngIf="password.touched && !password.valid">
+                          <i class="bi bi-exclamation-triangle-fill"></i>
+                          <div *ngIf="password.errors.required">This field cannot be empty</div>
+                        </div>
+                    </div>
+                    <input type="password" 
+                    class="form-control" 
+                    required
+                    id="password"
+                    ngModel name="password" #password="ngModel"
+                    [(ngModel)] = "user.userPassword"> 
+                </div>
+                <div class="col-md-6">
+                    <div class="row-custom">
+                        <label for="designation">Your Designation:</label>
+                        <div class="error-message" *ngIf="designation.touched && !designation.valid">
+                          <i class="bi bi-exclamation-triangle-fill"></i>
+                          <div *ngIf="designation.errors.required">This field cannot be empty</div>
+                        </div>
+                    </div>
+                    <input type="text" 
+                    class="form-control" 
+                    id="designation"
+                    required
+                    ngModel name="designation" #designation="ngModel"
+                    [(ngModel)] = "user.userDesignation">
+                </div>
+                <button class="button-eight" type="button" (click) ="signup()" 
+                [disabled] = "signupForm.invalid" >Join Us</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+     
+
+
+      
+
+
+       
+
+    
+

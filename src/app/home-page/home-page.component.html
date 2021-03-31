@@ -1,0 +1,108 @@
+<nav class="navBar" id="top-nav">
+  <div class="logo"><i class="bi bi-bounding-box" >&nbsp;&nbsp;&nbsp;Communica</i></div>
+  <ul>     
+    <li><a (click) = "onClickScroll('about');">About Us</a></li>
+    <li><a (click) = "onClickScroll('features');">Features</a></li>
+    <li><a (click) = "onClickScroll('clients');" >Our Clients</a></li>
+    <li><a (click) = "onClickScroll('contact');">Contact Us</a></li>
+    <li><a routerLink="login">Login</a><br></li>
+    <li><a routerLink="signup">Sign Up</a></li>
+  </ul>
+  <a id="icon" (click)="iconPressEvent();"><i class="bi bi-distribute-vertical"></i></a>
+</nav>
+
+<a id="about" #about>S</a>
+<router-outlet></router-outlet>
+
+<h1 class="display-5" id="first-heading">About Communica</h1>
+<div class="row">
+  <div class="col-md-5">
+    <div class="Image-container"></div>
+  </div>
+  <div class="col-md-7">
+    <p class="content-container"><span>Communica</span> is Project Management Application designed by Team Impulse, India.
+      The idea was to create a single stop solution to all your Project Management worries.
+      You can communicate within the team, share your progress, add new projects, assign task to 
+      your team-mates with the help of Communica, which is a web-based application, so no 
+      need to even download it!!
+    </p>
+  </div>
+</div>
+
+<a id="features" #features></a>
+<h1 class="display-5">In App Features</h1>
+<div class="row">
+  <div class="col-md-5">
+    <div class="gif-container">
+    </div> 
+  </div>
+  <div class="col-md-7">
+    <ul>
+      <li>Streamline your project management process.</li>
+      <li>Meet deadlines faster with project calender.</li>
+      <li>Collababroate with multiple teams easily.</li>
+      <li>Create task dependency and save time.</li>
+      <li>Share files, discuss and comment on projects.</li>
+    </ul>
+  </div>
+</div>
+
+<a id="clients"></a>
+<h1 class="display-5">Our Clients</h1>
+<div class="container" >
+    <div class="row">
+      <div class="col-md-2">
+        <div class="image-container dell"></div>
+      </div>
+      <div class="col-md-2">
+        <div class="image-container ibm"></div>
+      </div>
+      <div class="col-md-2">
+        <div class="image-container  wipro"></div>
+      </div>
+      <div class="col-md-2 ">
+        <div class="image-container google"></div>
+      </div>
+      <div class="col-md-2">
+        <div class="image-container tech-mahindra"></div>
+      </div>
+      <div class="col-md-2">
+        <div class="image-container intel"></div>
+      </div>
+  
+      <div class="col-md-2">
+        <div class="image-container soctronics"></div>
+      </div>
+      <div class="col-md-2">
+        <div class="image-container infosys"></div>
+      </div>
+      <div class="col-md-2">
+        <div class="image-container cisco"></div>
+      </div>
+      <div class="col-md-2 ">
+        <div class="image-container microsoft"></div>
+      </div>
+      <div class="col-md-2">
+        <div class="image-container tcs"></div>
+      </div>
+      <div class="col-md-2">
+        <div class="image-container media-mind"></div>
+    </div>
+  </div>
+</div> 
+
+<a id="contact"></a>
+<footer>
+    <div id ="grad">
+        <div class="h1">Contact Us</div><br>
+        <div class="media">
+            <ul class="social">
+                <li><i class="bi bi-facebook"></i></li>
+                <li><i class="bi bi-twitter"></i></li>
+                <li><i class="bi bi-instagram"></i></li>
+            </ul>
+        </div>
+        <div class="h4">You can mail us at: teamimpulsecommunica@gmail.com</div>
+        <div classs="h4">&#169;TeamImpulse</div>
+    </div>
+</footer>

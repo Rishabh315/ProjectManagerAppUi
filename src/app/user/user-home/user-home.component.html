@@ -1,0 +1,17 @@
+<div class="navbar">
+    <div class="dropdown"> 
+        <a class="dropbtn" (click)="toggleDropdown();">
+         <i class="bi bi-gear"></i>
+         <b>Settings</b>
+        </a>
+        <ul class="dropdown-content" id="dropdown-data">
+            <li><a routerLink="editProfile">Edit Account</a></li>
+            <li><a routerLink="delete">Delete Account</a></li>
+            <li><a [routerLink]="['/home']" (click)="emptyUser();">Logout</a></li>
+        </ul>
+    </div>
+</div>
+<div class="page-container">
+    <router-outlet></router-outlet>
+</div>
+ 

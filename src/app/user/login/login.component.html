@@ -1,0 +1,51 @@
+<div class="parent-div">
+    <div class="form-container">
+        <form id ="login-form" #loginForm="ngForm">
+            <a class="close-btn" [routerLink]="['/home']"><span>&times;</span></a>
+            <div class = "h1">Log in</div>
+            <p class="routing-text">Don't have an account yet?<a [routerLink]="['/home/signup']" class="routing-link">Sign Up</a></p>
+            <div class="input-group">
+                <div class = "error-message" *ngIf ="condition == 2 || condition == 0" id="wrong-credentials"><i class="bi bi-exclamation-triangle-fill"></i>
+                    Either your EmailId or password is incorrect
+                </div>
+                <div class="row-custom">
+                    <label for="email">Your Email:</label>
+                    <div class="error-message" *ngIf="email.touched && !email.valid">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        <div *ngIf="email.errors.required">This field cannot be empty</div>
+                        <div *ngIf="email.errors.pattern">You entered an invalid email id</div>
+                    </div>
+                </div>
+                <input type="email" 
+                class="form-control" 
+                id="email"
+                required
+                pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+                ngModel name="email" #email="ngModel"
+                [(ngModel)] = "user.userEmailId">    
+            </div>
+            
+            <div class="input-group">
+                <div class="row-custom">
+                    <label for="password">Your Password:</label>
+                    <div class="error-message" *ngIf="password.touched && !password.valid">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        <div *ngIf="password.errors.required">This field cannot be empty</div> 
+                    </div>
+                </div>
+                <input type="password" 
+                class="form-control" 
+                id="password"
+                required
+                ngModel name="password" #password="ngModel"
+                [(ngModel)] = "user.userPassword">     
+            </div>
+            <div class ="text-center">
+                <button class="button-eight"  type="button" (click) = "login()" [disabled]="loginForm.invalid">Log in</button>
+            </div>
+        </form>            
+    </div>
+</div>
+
+
+    
