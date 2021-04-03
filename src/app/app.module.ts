@@ -11,6 +11,12 @@ import { SignupComponent } from './user/signup/signup.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
 import { RouterModule } from '@angular/router';
 import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
+import { EmployeePageComponent } from './user/employee-page/employee-page.component';
+import { ManagerPageComponent } from './user/manager-page/manager-page.component';
+import { DefaultPageComponent } from './task/default-page/default-page.component';
+import { ViewTaskComponent } from './task/view-task/view-task.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+
 
 
 @NgModule({
@@ -20,14 +26,19 @@ import { EditProfileComponent } from './user/edit-profile/edit-profile.component
     LoginComponent,
     SignupComponent,
     UserHomeComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    EmployeePageComponent,
+    ManagerPageComponent,
+    DefaultPageComponent,
+    ViewTaskComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    NgApexchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

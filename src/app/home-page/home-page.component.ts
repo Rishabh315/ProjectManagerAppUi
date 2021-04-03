@@ -24,10 +24,10 @@ export class HomePageComponent implements OnInit {
     var x = document.getElementById("top-nav");
     if (x.className === "navBar") {
       x.className += " responsive";
-      icon.style.transform = "rotate(0deg)";
+      icon.style.transform = "rotate(90deg)";
     } else {
       x.className = "navBar";
-      icon.style.transform = "rotate(90deg)";
+      icon.style.transform = "rotate(0deg)";
     }
   }
 }

@@ -11,3 +11,11 @@ body {
     height: 100vh;
     overflow-x: hidden;
 }
+
+.bg-img {
+    background-image: url(./assets/Images/background-edit-user.jpg);
+}
+
+.dark-background{
+    background-color: rgba(32, 18, 155, 0.85);
+}

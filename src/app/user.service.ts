@@ -39,4 +39,8 @@ export class UserService {
   editUserDetails(user: UserDetails){
     return this.httpClient.put(this.url + "editUserData/" + this.user.userId, user);
   }
+
+  deleteAccount(userId:number){
+    return this.httpClient.delete(this.url + "deleteUserById/" + userId);
+  }
 }

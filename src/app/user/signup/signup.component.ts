@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 import { UserDetails } from '../UserDetails';
 
@@ -11,23 +12,30 @@ export class SignupComponent implements OnInit {
 
   isEmailUsed : any;
   user : UserDetails = new UserDetails();
+  notification: any;
 
-  constructor(public userService: UserService) { 
+  constructor(public userService: UserService,
+    private router: Router) { 
 
   }
 
   ngOnInit(): void {
+    this.notification = document.getElementById("message_bg");
   }
 
   signup(){
     let responseDataBack =  this.userService.signup(this.user);
       responseDataBack.subscribe((responseData) =>{
-        console.log(responseData);
         this.isEmailUsed = responseData;
         if(!this.isEmailUsed){
-          alert("Congrats! You have successfully added your account");
+          this.notification.style.display = "block";
         }
       });
+
+      setTimeout(()=>{
+        this.notification.style.display = "none";
+        this.router.navigate(['/home/login']);
+      },2000);
   }
 }
 

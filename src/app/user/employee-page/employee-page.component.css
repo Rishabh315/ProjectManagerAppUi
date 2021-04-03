@@ -1,0 +1,95 @@
+.main-container{
+    width: 100vw;
+    height: 90vh;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#left-navbar{
+    width: 300px;
+    height: 100%;
+
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    background-color: rgb(188, 219, 236);
+    display: none;
+}
+
+.navbar-heading{
+    margin: 5px 0px 20px 5px;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(56, 55, 55);
+}
+
+.no-task-display{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#icon-task {
+    position: absolute;
+    top: 2%;
+    left: 1%;
+
+    font-size: 30px;
+    color: white;
+    transition: color 0.4s;
+    cursor: pointer;
+}
+
+#icon-task:hover {
+    color: rgb(84, 216, 84);
+}
+
+.router-container {
+    width: calc(100% - 300px);
+    height: 100%;
+    flex-grow: 1;
+}
+
+@media only screen and (max-width: 1000px){
+    #left-navbar{
+        display: none;
+    }
+    .main-container{
+        height: inherit;
+    }
+}
+
+.task-container{
+    width: 95%;
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 0px;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: transparent;
+}
+
+.high {
+    background-color: red;
+}
+
+.medium {
+    background-color: orange;
+}
+
+.low {
+    background-color: rgb(84, 216, 84);
+}
+
+.high:hover,.medium:hover, .low:hover{
+    cursor: pointer;
+    background-color: rgb(152, 99, 212);
+    transition: background-color 0.3s;
+}
+

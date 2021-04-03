@@ -1,0 +1,73 @@
+.task-content-container {
+    width: 90%;
+    margin: 20px auto;
+    font-size: 20px;
+}
+
+.display-5 {
+    color: rgb(14, 14, 126);
+    margin-bottom: 10px;
+}
+
+.display-5:not(.display-5:first-child){
+    margin-top: 20px;
+}
+
+.project-detail-container, .manager-detail-container, .task-data-container{
+    width: 100%;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px auto;
+    background-color: rgb(230, 230, 230);
+    box-sizing: border-box;
+}
+.content-text{
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.title {
+    color: rgb(87, 9, 87);
+    margin-right: 5px;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.input-container input {
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.progress {
+    height: 25px;
+    display: flex;
+    align-items: center;
+}
+
+#bar1 {
+    height: 100%;
+    background-color: rgb(84, 204, 84);
+    
+    display: flex;
+    align-items: center;
+}
+
+#bar-content{
+    font-weight: bold;
+    margin: 5px;
+}
+
+#chart {
+    background-color: lightblue;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-weight: bold;
+}

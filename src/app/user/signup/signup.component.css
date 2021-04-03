@@ -201,8 +201,62 @@ transition: all 1.1s cubic-bezier(0.19, 1, 0.22, 1);
 
 .button-eight:hover:enabled::after {
   transform: translate3d(100%, 0, 0) rotate(90deg);
-
 } 
 
+#message_bg{
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:rgba(0,0,0,0.8);
+    z-index: 2;
+    overflow-y: scroll;
+}
+  
+#message_container {
+    width:auto;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%,-50%);
+    box-shadow: 0px 0px 8px 4px rgb(86, 232, 252);
+    border-radius: 10px;
+}
+    
+#message_container .message {
+    background: #000;
+    width: calc(100% - 20px);
+    max-width: 640px;
+    margin: 0 auto;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+#message_container .message .title {
+    display: inline-block;
+    padding: 0.5em 2em;
+    font-weight: bold;
+    color :white;
+    background-color: rgb(59, 224, 59);
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 10px;
+    font-size: 22px;
+}
+
+#message_container .message p {
+    color: #fff;
+    padding: 1em;
+    margin: 0;
+    display: block;
+    line-height: 1.4em;
+    text-align: justify;
+    font-size: 22px;
+}
 
 

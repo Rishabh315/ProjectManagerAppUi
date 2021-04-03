@@ -1,0 +1,52 @@
+<div class="task-content-container">
+    <div class="project-detail-container">
+        <h1 class="display-5">Project Details:</h1>
+        <div class="content-text"><div class="title">Project Name:</div>{{currentTask.parentProject?.projectName}}</div>
+        <div class="content-text"><div class="title">Project Requirement:</div> {{currentTask.parentProject?.projectRequirement}}</div>
+        <div class="content-text"><div class="title">Start Date:</div> {{currentTask.parentProject?.startDate}}</div>
+        <div class="content-text"><div class="title">End Date:</div> {{currentTask.parentProject?.endDate}}</div>    
+    </div>
+
+    <div class="manager-detail-container">
+        <h1 class="display-5">Manager Details:</h1>
+        <div class="content-text"><div class="title">Manager Name:</div> {{currentTask.parentProject?.manager?.userName}}</div>
+        <div class="content-text"><div class="title">Email ID:</div> {{currentTask.parentProject?.manager?.userEmailId}}</div>    
+    </div>
+
+    <div class="task-data-container">
+        <h1 class="display-5">Task Data:</h1>
+        <div class="content-text"><div class="title">Task Name:</div> {{currentTask?.taskName}}</div>
+        <div class="content-text"><div class="title">Task Requirement:</div> {{currentTask?.taskRequirements}}</div>
+        <div class="content-text"><div class="title">Task Priority:</div> {{currentTask?.taskPriority}}</div>    
+    </div>
+
+    <div class="task-data-container">
+        <h1 class="display-5">Get Started!!</h1>
+        <div class="input-container">
+            <input type="number" placeholder="Enter Task Completion Percentage"
+            [(ngModel)] = "currentTask.taskPercentage">
+            <button class="btn btn-success" (click)="updatePercentage()">Update</button>
+        </div>
+
+        <div class="progress-ber-container">
+            <div class="title">Task Progress Bar:</div>
+            <div class="progress">
+                <div id="bar1" class="progress-bar progress-bar-success progress-bar-striped" 
+                role="progressbar" style="width:0%">
+                    <p id="bar-content"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="chart">
+        <div class="title">Project Timeline:</div>
+        <apx-chart
+          [series]="chartOptions?.series"
+          [chart]="chartOptions?.chart"
+          [plotOptions]="chartOptions?.plotOptions"
+          [xaxis]="chartOptions?.xaxis"
+        ></apx-chart>
+      </div>
+</div>
+

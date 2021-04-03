@@ -1,50 +1,72 @@
-<form #form="ngForm" id="edit-user-form">
-    <div class="row-custom">
-    <label for = "name">NAME</label>
-        <div class="error-message" *ngIf="name.touched && name.invalid">
-            <i class="bi bi-exclamation-triangle-fill"></i>
-            <div *ngIf="name.errors.required">This field can't be empty</div>
-            <div *ngIf="name.errors.minlength">Name should be atleast of 5 in length</div>     
+<div class="form-container">
+    <h1>Edit Profile</h1>
+    <form #form="ngForm" id="edit-user-form">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row-custom">
+                <label for = "name">Name:</label>
+                    <div class="error-message" *ngIf="name.touched && name.invalid">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        <div *ngIf="name.errors.required">This field can't be empty</div>
+                        <div *ngIf="name.errors.minlength">Name should be atleast of 5 in length</div>     
+                    </div>
+                </div>
+                <input type="text" name="name" class="form-control" required  minlength="3"
+                [(ngModel)]="user.userName" #name="ngModel" id="name">
+            </div>
+            <div class="col-md-6">
+                <div class="row-custom">
+                <label for = "designation">Designation:</label>
+                <div class="error-message" *ngIf="userDesignation.touched && !userDesignation.valid">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                    <div *ngIf="userDesignation.errors?.required"> This field can't be empty</div>
+                </div>
+                </div>
+                <input type="text" name="userDesignation" class="form-control" required 
+                [(ngModel)] ="user.userDesignation" #userDesignation = "ngModel" 
+                id="userDesignation">
+            </div>
         </div>
-    </div>
-    <input type="text" name="name" class="form-control" required  minlength="3"
-    [(ngModel)]="user.userName" #name="ngModel" id="name">
-   
-   <div class="row-custom">
-   <label for = "designation">DESIGNATION </label>
-   <div class="error-message" *ngIf="userDesignation.touched && !userDesignation.valid">
-   <i class="bi bi-exclamation-triangle-fill"></i>
-     <div *ngIf="userDesignation.errors?.required"> This field can't be empty</div>
-   </div>
-   </div>
-   <input type="text" name="userDesignation" class="form-control" required 
-   [(ngModel)] ="user.userDesignation" #userDesignation = "ngModel" 
-   id="userDesignation">
-   
- 
-    <div class="row-custom">
-        <label for = "emailId">EMAILID</label>
-        <div class="error-message" *ngIf="userEmailId.touched && !userEmailId.valid">
-            <i class="bi bi-exclamation-triangle-fill"></i>
-            <div *ngIf="userEmailId.errors?.required"> This field can't be empty</div>
+    
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row-custom">
+                    <label for = "emailId">Email ID:</label>
+                    <div class="error-message" *ngIf="userEmailId.touched && !userEmailId.valid">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        <div *ngIf="userEmailId.errors?.required"> This field can't be empty</div>
+                        <div *ngIf="userEmailId.errors.pattern">Incorrect Email ID format</div>
+                    </div>
+                </div>
+                <input type="emailId" name="userEmailId" class="form-control" required 
+                [(ngModel)] ="user.userEmailId"
+                pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+                #userEmailId = "ngModel" id="userEmailId">        
+            </div>
+            <div class="col-md-6">
+                <div class="row-custom">
+                    <label for = "password">Password:</label>
+                        <div class="error-message" *ngIf="userPassword.touched && !userPassword.valid">
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+                            <div *ngIf="userPassword.errors?.required"> This field can't be empty</div>
+                        </div>
+                </div>
+                <input type="password" name="userPassword" class="form-control" required 
+                [(ngModel)] ="user.userPassword"
+                #userPassword = "ngModel"  id="userPassword">      
+            </div>
         </div>
-    </div>
-    <input type="emailId" name="userEmailId" class="form-control" required 
-    [(ngModel)] ="user.userEmailId"
-    #userEmailId = "ngModel" id="userEmailId">
-     
-    <div class="row-custom">
-    <label for = "password">PASSWORD</label>
-        <div class="error-message" *ngIf="userPassword.touched && !userPassword.valid">
-            <i class="bi bi-exclamation-triangle-fill"></i>
-            <div *ngIf="userPassword.errors?.required"> This field can't be empty</div>
+        <div class="btn-container">
+            <button (click)="enableAllInputs();" id="change-btn">Change</button>  
+            <button type="submit" [disabled]="!form.valid && isChangeBtnClicked" id="edit-btn"
+            (click)="editUserDetails();">Update Profile</button>
         </div>
+    </form>
+</div>
+<div id="message_bg">
+    <div id="message_container">
+      <div class="message">
+        <div class="title">Success</div>
+        <p>User Details updated successfully!!</p>
     </div>
-    <input type="password" name="userPassword" class="form-control" required 
-    [(ngModel)] ="user.userPassword"
-    #userPassword = "ngModel"  id="userPassword">
-    <button (click)="enableAllInputs();">Change</button>
- 
-    <button class="btn btn-success" type="submit" [disabled] = "!form.valid"
-    (click)="editUserDetails();">Update Profile</button>
-</form>
+</div>

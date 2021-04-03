@@ -6,7 +6,7 @@
         </a>
         <ul class="dropdown-content" id="dropdown-data">
             <li><a routerLink="editProfile">Edit Account</a></li>
-            <li><a routerLink="delete">Delete Account</a></li>
+            <li><a href="javascript:void(0);" (click)="displayDeleteMessage();">Delete Account</a></li>
             <li><a [routerLink]="['/home']" (click)="emptyUser();">Logout</a></li>
         </ul>
     </div>
@@ -14,4 +14,17 @@
 <div class="page-container">
     <router-outlet></router-outlet>
 </div>
- 
+
+<div id="message_delete">
+    <div id="message_container">
+        <div class="message">
+            <div class="title">Warning</div>
+            <p>Do you want to delete your Account?</p>
+        </div>
+        <div class="button-container">
+            <button class="option-btn" (click)="deleteAccount();" id="btn-yes">Yes</button>
+            <button class="option-btn" (click)="hidePopUp();" id="btn-no">No</button>
+        </div>
+        <div id="Warning" *ngIf="result">Your account was deleted!!</div>
+    </div>
+</div>
