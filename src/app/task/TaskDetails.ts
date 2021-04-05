@@ -6,7 +6,7 @@ export class TaskDetails{
     taskName: string;
     taskPriority: string;
     taskRequirements: string;
-    taskPercentage: number;
+    taskPercentage: number = 0;
     user: UserDetails;
     parentProject: ProjectDetails;
 }

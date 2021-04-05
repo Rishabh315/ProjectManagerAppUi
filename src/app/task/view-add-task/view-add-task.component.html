@@ -1,0 +1,137 @@
+<div class="add-task-container">
+    <div class="select-container">
+        <label for="select-project">Select Project to view and add Tasks: </label>
+        <select id="select-project"></select>
+        <button (click) = "setSelectedProject();">Select</button>
+    </div>
+
+    <div class="detail-container" *ngIf="selectedProject.projectName!=undefined">
+        <h4>Project Details:</h4>
+        <div class="detail-field">
+            <div class="title">Project Name:</div>
+            {{selectedProject?.projectName}}
+        </div>
+
+        <div class="detail-field">
+            <div class="title">Project Start Date:</div>
+            {{selectedProject?.startDate}}
+        </div>
+
+        <div class="detail-field">
+            <div class="title">Project End Date:</div>
+            {{selectedProject?.endDate}}
+        </div>
+
+        <div class="detail-field">
+            <div class="title">Project Requirement:</div>
+            {{selectedProject?.projectRequirement}}
+        </div>
+    </div>
+
+    <div class="task-table-container" *ngIf="selectedProject.projectName!=undefined">
+        <h4>Task Details:</h4>
+        <div *ngIf="taskList.length == 0" class="warn-message">No tasks to display yet!!</div>
+        <table *ngIf="taskList.length > 0" id="task-table">
+            <tr>
+                <th>Task Id</th>
+                <th>Task Name</th>
+                <th>Task Owner</th>
+                <th>Task Priority</th>
+                <th>Progress</th>
+                <th>Actions</th>
+            </tr>
+            <tr *ngFor = "let task of taskList" class="data-container">
+                <td>{{task?.taskId}}</td>
+                <td>{{task?.taskName}}</td>
+                <td>{{task?.user.userName}}</td>
+                <td>{{task?.taskPriority}}</td>
+                <td>{{task?.taskPercentage}}%</td>
+            </tr>
+        </table>
+        <button (click)= "getTaskList();" class="get-task">Update List</button>
+    </div>
+
+    <div id="create-task-container" *ngIf="selectedProject.projectName!=undefined">
+        <h4>Create New Task:</h4>
+        <form #myForm="ngForm"  id="add-task">
+
+            <div class=" form-group row-custom">
+                <!-- label -->
+                <label for="name">Task Name:</label>
+                <!-- validations -->
+                <div class=" error-message" *ngIf="taskName.touched && !taskName.valid"> 
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    <div *ngIf="taskName.errors.required">This field can't be empty</div>
+                    <div *ngIf="taskName.errors.minlength">Name should be atleast of 3  in length</div>
+                <br>
+                </div> 
+            </div>
+            <!-- input field -->
+            <input type="text"
+            class="form-control"
+            [(ngModel)]= "newTask.taskName"
+            name = "taskName"
+            #taskName="ngModel"
+            required
+            minlength="3"
+            pattern="[a-zA-Z ]{3,50}"><br>   
+            
+
+            <div class="row-custom">
+                <label for="email">Task Owner Email:</label>
+                <div class="error-message" *ngIf="email.touched && !email.valid">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    <div *ngIf="email.errors.required">This field cannot be empty</div>
+                    <div *ngIf="email.errors.pattern">You entered an invalid email id</div>
+                </div>
+                <div class="error-message" *ngIf="!isEmailIdFound">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    Email Id is incorrent
+                </div>
+            </div>
+            <input type="email" 
+            class="form-control" 
+            id="email"
+            required
+            pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+            ngModel name="email" #email="ngModel"
+            [(ngModel)] = "newTask.taskOwnerEmail">    
+
+            <label for="task-priority">Select Task Priority:</label>
+            <select id="task-priority">
+                <option value="low" selected>low</option>
+                <option value="medium">medium</option>
+                <option value="high">high</option>
+            </select>
+
+            <div class="form-group row-custom">  
+                <!-- label -->
+                <label for="requirement">Requirement:</label>
+                <!--validations of above field  -->
+                <div class="error-message" *ngIf="requirement.touched && !requirement.valid">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    <div *ngIf="requirement.errors.required">This field cannot be empty</div>
+                </div>
+            </div>
+            <!-- input field -->
+            <textarea type="text" name="requirement"class="form-control" 
+            [(ngModel)]= "newTask.taskRequirement" name="requirement" 
+            #requirement="ngModel" required></textarea><br>
+            <br>
+
+            <div class="text-center">
+                <button class="btn btn-success" (click)="addNewTask(); myForm.reset()" 
+                [disabled] = "!myForm.valid">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="message_bg">
+    <div id="message_container">
+        <div class="message">
+            <div class="title">Success</div>
+            <p>The task: "{{task?.taskName}}" was successfully created and 
+                assigned to "{{taskOwner[0]?.userName}}"</p>
+        </div>
+    </div>
+</div>

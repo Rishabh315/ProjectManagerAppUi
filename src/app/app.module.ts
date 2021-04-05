@@ -16,7 +16,11 @@ import { ManagerPageComponent } from './user/manager-page/manager-page.component
 import { DefaultPageComponent } from './task/default-page/default-page.component';
 import { ViewTaskComponent } from './task/view-task/view-task.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
-
+import { AddProjectComponent } from './project/add-project/add-project.component';
+import { EditProjectComponent } from './project/edit-project/edit-project.component';
+import { ViewAddTaskComponent } from './task/view-add-task/view-add-task.component';
+import { EditTaskComponent } from './task/edit-task/edit-task.component';
+import { WelcomePageComponent } from './project/welcome-page/welcome-page.component';
 
 
 @NgModule({
@@ -30,7 +34,12 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     EmployeePageComponent,
     ManagerPageComponent,
     DefaultPageComponent,
-    ViewTaskComponent
+    ViewTaskComponent,
+    AddProjectComponent,
+    EditProjectComponent,
+    ViewAddTaskComponent,
+    EditTaskComponent,
+    WelcomePageComponent
   ],
   imports: [
     BrowserModule,

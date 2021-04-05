@@ -1,0 +1,233 @@
+.add-task-container{
+    width: 100%;
+    height: 100%;  
+}
+
+.select-container {
+    width: 90%;
+    background-color: rgb(228, 225, 225);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-container label {
+    font-size: 20px;
+    color: purple;
+    margin-right: 8px;
+}
+
+.select-container button {
+    padding: 6px 12px;
+    border-radius: 12px;
+    margin-left: 10px;
+    background-color: royalblue;
+    color: white;
+}
+
+.detail-container {
+    width: 90%;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+
+    background-color: rgb(228, 225, 225);
+}
+
+.detail-container h4, .task-table-container h4, #create-task-container h4 {
+    text-align: center;
+    color: purple;
+    margin: 10px 0px;
+}
+
+.detail-container .detail-field{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   
+}
+
+.detail-field .title{
+    font-weight: bold;
+    color: purple;
+    margin-right: 10px;
+}
+
+.task-table-container {
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+    background-color: rgb(228, 225, 225);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task-table-container .warn-message{
+    font-size: 20px;
+    color: red;
+}
+
+.task-table-container table{
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.task-table-container tr, .task-table-container th{
+    border: 1px solid black;
+}
+
+.task-table-container th {
+    background-color: rgb(23, 21, 180);
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+
+.task-table-container td{
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px
+}
+
+.task-table-container tr:nth-child(odd){
+    background-color: blanchedalmond;
+}
+
+.task-table-container .get-task{
+    padding: 8px 16px;
+    background-color: rgb(39, 162, 219);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 20px;
+    margin: 10px 0px;
+}
+
+#create-task-container {
+    width: 90%;
+    margin: 10px auto;
+    background-color: rgb(228, 225, 225);
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#create-task-container .row-custom{
+    width: 90%;
+    margin-left: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: center; */
+}
+#create-task-container label {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 15px 10px 15px 0px;
+    color: black;
+}
+
+.error-message {
+    height: 30px;
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0px 8px;
+    margin-left: 15px;
+    background-color: rgb(219, 151, 151);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+}
+
+#create-task-container input {
+    width: 90%;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+#create-task-container .form-group{
+    margin: -10px 0px;
+} 
+
+#create-task-container textarea{
+    width: 90%;
+    padding: 5px;
+    border-radius: 10px;
+    color: rgb(19, 18, 18);
+}
+
+#create-task-container .text-center{
+    text-align: center;
+}
+
+#create-task-container .btn {
+    font-size: 20px;
+    padding: 12px 22px;
+    border-radius: 10px;
+}
+
+#message_bg{
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:rgba(0,0,0,0.8);
+    z-index: 2;
+    overflow-y: scroll;
+}
+  
+#message_container {
+    width:auto;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%,-50%);
+    box-shadow: 0px 0px 8px 4px rgb(86, 232, 252);
+    border-radius: 10px;
+}
+    
+#message_container .message {
+    background: #000;
+    width: calc(100% - 20px);
+    max-width: 640px;
+    margin: 0 auto;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+#message_container .message .title {
+    display: inline-block;
+    padding: 0.5em 2em;
+    font-weight: bold;
+    color :white;
+    background-color: rgb(59, 224, 59);
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 10px;
+    font-size: 22px;
+}
+
+#message_container .message p {
+    color: #fff;
+    padding: 1em;
+    margin: 0;
+    display: block;
+    line-height: 1.4em;
+    text-align: justify;
+    font-size: 22px;
+}

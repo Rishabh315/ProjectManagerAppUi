@@ -1,0 +1,111 @@
+<div class="edit-task-container">
+    <div class="select-container">
+        <label for="select-project">Select Project to Edit its Tasks: </label>
+        <select id="select-project"></select>
+        <button (click) = "setSelectedProject();">Select</button>
+    </div>
+
+    <div class="select-container" *ngIf="selectedProject.projectId!=undefined">
+        <label for="select-task">Select Task to Edit: </label>
+        <select id="select-task"></select>
+        <button (click) = "setSelectedTask();">Select</button>
+    </div>
+
+    <div class="button-box" *ngIf="selectedTask.taskId!=undefined">
+        <button class="edit-btn" (click)= "displayEditTaskForm();">Edit</button>
+        <button class="delete-btn" (click)="displayDeleteMessage();">Delete</button>    
+    </div>
+
+    <div class="edit-task-form-container" id="edit-task-form">
+        <h4>Edit Task:</h4>
+        <form #myForm="ngForm"  id="edit-task">
+
+            <div class=" form-group row-custom">
+                <!-- label -->
+                <label for="name">Task Name:</label>
+                <!-- validations -->
+                <div class=" error-message" *ngIf="taskName.touched && !taskName.valid"> 
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    <div *ngIf="taskName.errors.required">This field can't be empty</div>
+                    <div *ngIf="taskName.errors.minlength">Name should be atleast of 3  in length</div>
+                <br>
+                </div> 
+            </div>
+            <!-- input field -->
+            <input type="text"
+            class="form-control"
+            [(ngModel)]= "selectedTask.taskName"
+            name = "taskName"
+            #taskName="ngModel"
+            required
+            minlength="3"
+            pattern="[a-zA-Z ]{3,50}"><br>   
+            
+            <div class=" form-group row-custom">
+                <!-- label -->
+                <label for="name">Select Task Priority:</label>
+                <!-- validations -->
+                <div class=" error-message" *ngIf="taskPriority.touched && !taskPriority.valid"> 
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    <div *ngIf="taskPriority.errors.required">This field can't be empty</div>
+                    <div *ngIf="taskPriority.errors.minlength">Name should be atleast of 3  in length</div>
+                <br>
+                </div> 
+            </div>
+            <!-- input field -->
+            <input type="text"
+            class="form-control"
+            [(ngModel)]= "selectedTask.taskPriority"
+            name = "taskPriority"
+            #taskPriority="ngModel"
+            required
+            minlength="3"
+            pattern="[a-zA-Z ]{3,50}"><br> 
+            
+
+            <div class="form-group row-custom">  
+                <!-- label -->
+                <label for="requirement">Requirement:</label>
+                <!--validations of above field  -->
+                <div class="error-message" *ngIf="requirement.touched && !requirement.valid">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    <div *ngIf="requirement.errors.required">This field cannot be empty</div>
+                </div>
+            </div>
+            <!-- input field -->
+            <textarea type="text" name="requirement"class="form-control" 
+            [(ngModel)]= "selectedTask.taskRequirements" name="requirement" 
+            #requirement="ngModel" required></textarea><br>
+            <br>
+
+            <div class="text-center">
+                <button class="btn btn-success" (click)="editTask();" 
+                [disabled] = "!myForm.valid">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="task_delete">
+    <div id="message_container">
+        <div class="message">
+            <div class="title">Warning</div>
+            <p>
+                Do you want to delete the task: "{{selectedTask.taskName}}"?
+            </p>
+        </div>
+        <div class="button-container">
+            <button class="option-btn" (click)="deleteTask();" id="btn-yes">Yes</button>
+            <button class="option-btn" (click)="hidePopUp();" id="btn-no">No</button>
+        </div>
+        <div id="Warning" *ngIf="displayWarning">The task was deleted.</div>
+    </div>
+</div>
+
+<div id="message_success">
+    <div id="message_container">
+      <div class="message">
+        <div class="title">Success</div>
+        <p>The task was edited successfully.</p>
+    </div>
+</div>

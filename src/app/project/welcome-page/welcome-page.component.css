@@ -1,0 +1,18 @@
+.display-4, .display-5 {
+    text-align: right;
+    color: #601eff;
+    margin: 40px 30px 0px 0px ;
+    font-weight: bold;
+}
+
+.content {
+    width: 100%;
+    position: relative;
+}
+
+.display-5 {
+    width: 40%;
+    position: absolute;
+    top: 0%;
+    right: 3%;
+}

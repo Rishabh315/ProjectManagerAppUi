@@ -17,5 +17,17 @@ body {
 }
 
 .dark-background{
-    background-color: rgba(32, 18, 155, 0.85);
+    background-image: url(./assets/Images/task-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.manager-background {
+    background-image: url(./assets/Images/manager_bg.jpg);
+    background-size: cover;
+    background-position-x: left;
+}
+
+.add-project-background{
+    background-image: url(./assets/Images/image4.jpg);
 }

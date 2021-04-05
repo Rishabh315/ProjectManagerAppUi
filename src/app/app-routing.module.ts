@@ -2,7 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomePageComponent } from './home-page/home-page.component';
+import { AddProjectComponent } from './project/add-project/add-project.component';
+import { EditProjectComponent } from './project/edit-project/edit-project.component';
+import { WelcomePageComponent } from './project/welcome-page/welcome-page.component';
 import { DefaultPageComponent } from './task/default-page/default-page.component';
+import { EditTaskComponent } from './task/edit-task/edit-task.component';
+import { ViewAddTaskComponent } from './task/view-add-task/view-add-task.component';
 import { ViewTaskComponent } from './task/view-task/view-task.component';
 import { EditProfileComponent } from './user/edit-profile/edit-profile.component';
 import { EmployeePageComponent } from './user/employee-page/employee-page.component';
@@ -28,7 +33,15 @@ const routes: Routes = [
             { path: 'viewTask', component: ViewTaskComponent},
           ]
         },
-      { path: 'managerPage', component: ManagerPageComponent}
+      { path: 'managerPage', component: ManagerPageComponent,
+        children: [
+          { path: 'addProject', component: AddProjectComponent}, 
+          { path: 'editProject', component: EditProjectComponent},
+          { path: 'viewAddTask', component: ViewAddTaskComponent},
+          { path: 'editTask', component: EditTaskComponent},
+          { path: 'welcomeManager', component: WelcomePageComponent}
+        ]
+    }
     ]
 }
 ];

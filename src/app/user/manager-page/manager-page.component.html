@@ -1,1 +1,40 @@
-<p>manager-page works!</p>
+<div class="manager-page-container">
+    <a id="navbar-icon" (click)="toggleNavbar();"><i class="bi bi-distribute-vertical"></i></a>
+    <div class="manager-leftNav" id="left-NavBar">
+        
+        <div class="nav-title">My Projects:</div>
+        <div id="project-container">
+        </div>
+        <button (click) ="getMyProjects();" class="get-projects">Get All Projects</button>
+        <hr>
+        <div class="nav-title">My Actions:</div>
+        <a class="nav-project-link" [routerLink]="['addProject']">
+            <i class="bi bi-plus-square"></i>Create New Project
+        </a> 
+        <a class="nav-project-link" [routerLink]="['viewAddTask']" id="second-link">
+            <i class="bi bi-eye"></i>View/ Add Tasks
+        </a>
+        <a class="nav-project-link" [routerLink]="['editTask']" id="third-link">
+            <i class="bi bi-pencil"></i>Edit Tasks
+        </a>
+    </div>
+    <div class="manager-router-container">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<div id="project_delete">
+    <div id="message_container">
+        <div class="message">
+            <div class="title">Warning</div>
+            <p>
+                Do you want to delete the project: "{{deleteProject.projectName}}" and
+                all its tasks?
+            </p>
+        </div>
+        <div class="button-container">
+            <button class="option-btn" (click)="deleteProjectById();" id="btn-yes">Yes</button>
+            <button class="option-btn" (click)="hidePopUp();" id="btn-no">No</button>
+        </div>
+        <div id="Warning"></div>
+    </div>
+</div>

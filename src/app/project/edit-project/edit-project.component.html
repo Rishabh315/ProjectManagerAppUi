@@ -1,0 +1,94 @@
+<div class="edit-project-container">
+    <form #myForm="ngForm" id="edit-project" >
+        <h3>Update Project Details</h3>
+    
+        <div class=" form-group row-custom">
+            <!-- label -->
+            <label for="name">Project Name</label>
+            <!-- validations -->
+            <div class=" error-message" *ngIf="projectName.touched && !projectName.valid"> 
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                <div *ngIf="projectName.errors.required">This field can't be empty</div>
+                <div *ngIf="projectName.errors.minlength">Name should be atleast of 3  in length</div>
+                <div *ngIf="projectMngName.errors.pattern">Name should allow Alphabets only</div>
+                <br>
+            </div> 
+            <!-- input field -->
+            <input type="text"
+            class="form-control"
+            [(ngModel)]= "project.projectName"
+            name = "projectName"
+            #projectName="ngModel"
+            required
+            minlength="3"
+            pattern="[a-zA-Z ]{3,50}"><br>   
+        </div>
+    
+        <div class="form-group  row-custom">
+            <!-- label -->
+            <label for="startdate"> Start Date</label>
+            <!--validations of above field  -->
+            <div class="error-message" *ngIf="startDate.touched && !startDate.valid"> 
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                <div *ngIf="startDate.errors.required">This field can't be empty</div>
+            </div>
+            <!-- input field -->
+            <input type="date" class="form-control" 
+            name = "startdate"  
+            [(ngModel)] = "project.startDate" 
+            name="startDate"  #startDate ="ngModel" 
+            required><br> 
+        </div>
+    
+        <div class="form-group  row-custom">
+            <!-- label -->
+            <label for="enddate">End Date</label>
+            <!--validations of above field  -->
+            <div class="error-message" *ngIf="endDate.touched && !endDate.valid"> 
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                <div *ngIf="endDate.errors.required">*This field cannot be empty</div>
+            </div>
+            <div class="error-message" *ngIf="endDate.dirty && !isEndDateValid">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                End date is not valid
+            </div>
+            <!-- input field -->
+            <input type="date"
+            name = "enddate" 
+            class="form-control"
+            [(ngModel)] = "project.endDate" 
+            name="endDate" 
+            #endDate="ngModel"
+            (change) = "validateEndDate(project.startDate,project.endDate)" required><br>
+        </div>
+        
+        <div class="form-group  row-custom">
+            <!-- label -->
+            <label for="required">Requirement</label>
+            <!--validations of above field  -->
+            <div class="error-message" *ngIf="requirement.touched && !requirement.valid"> 
+                <i class="bi bi-exclamation-triangle-fill"></i>
+            <div *ngIf="requirement.errors.required">*This field can't be empty</div></div>
+            <!-- input field -->
+            <textarea type="text"class="form-control" name="requirement"
+            [(ngModel)]= "project.projectRequirement" 
+            #requirement="ngModel" required></textarea><br>
+        </div><br>
+
+        <div class="text-center">
+            <button  class="btn btn-success" type="submit"  (click)="updateProjectDetails();" [disabled]="!myForm.form.valid || !isEndDateValid">Update</button> 
+        </div>
+    
+    
+    </form>
+</div>
+    
+<!-- notification message -->
+<div id="message_bg">
+    <div id="message_container">
+        <div class="message">
+        <div class="title">Success</div>
+        <p>Successfully Updated Project Details!!!</p>
+        </div>
+    </div>
+</div>
