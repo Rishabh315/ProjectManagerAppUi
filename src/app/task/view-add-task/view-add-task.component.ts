@@ -80,7 +80,8 @@ export class ViewAddTaskComponent implements OnInit {
       console.log(this.taskOwner);
       this.isEmailIdFound = !(this.taskOwner[0] == undefined);
     });
-    if(this.isEmailIdFound)
+    // console.log(this.isEmailIdFound);
+    if(!this.isEmailIdFound)
       this.createNewTask();
   }
 
@@ -110,7 +111,7 @@ export class ViewAddTaskComponent implements OnInit {
       this.notification.style.display = "block";
       setTimeout(()=>{
       this.notification.style.display = "none";
-      },2000);
+      },4000);
     });
   }
 }

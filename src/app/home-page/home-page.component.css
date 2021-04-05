@@ -354,6 +354,10 @@ footer{
     color : rgb(144, 178, 230);
 }
 /*-----------------------------------------------------------------------*/
+#team-row {
+  width: 90%;
+}
+
 .our-team{
   text-align: center;
   margin-bottom: 100px;

@@ -1,7 +1,7 @@
 .display-5{
     text-align: center;
     color: white;
-    margin-top: 20px;
+    margin-top: 50px;
     font-size: bold;
 } 
   
@@ -20,6 +20,7 @@
     transition: 0.4s;
     text-align: center;
   }
+
   .box:before {
     content: "";
     position: absolute;
