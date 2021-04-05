@@ -18,10 +18,14 @@ export class EditProjectComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    document.body.classList.add("edit-project-background");
     setTimeout( () => {
       this.getProjectDetailsById();
     }, 20);
+  }
+
+  ngOnDestroy():void {
+    document.body.classList.remove("edit-project-background");
   }
 
   updateProjectDetails(){

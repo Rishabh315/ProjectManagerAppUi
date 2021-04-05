@@ -23,11 +23,15 @@ body {
 }
 
 .manager-background {
-    background-image: url(./assets/Images/manager_bg.jpg);
+    background-image: url(./assets/Images/herobg.jpg);
     background-size: cover;
-    background-position-x: left;
 }
 
 .add-project-background{
     background-image: url(./assets/Images/image4.jpg);
+}
+
+.edit-project-background{
+    background-image: url(./assets/Images/edit-project-bg.jpg);
+    background-size: cover;
 }
