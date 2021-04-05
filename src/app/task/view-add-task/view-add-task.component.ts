@@ -79,20 +79,23 @@ export class ViewAddTaskComponent implements OnInit {
       this.taskOwner = response;
       console.log(this.taskOwner);
       this.isEmailIdFound = !(this.taskOwner[0] == undefined);
+      // console.log(this.isEmailIdFound);
+      
     });
-    // console.log(this.isEmailIdFound);
-    if(!this.isEmailIdFound)
+    if(this.isEmailIdFound){
       this.createNewTask();
+    }
   }
 
   createNewTask(){
       this.task.taskName = this.newTask.taskName;
       this.task.taskPriority = this.newTask.taskPriority;
       this.task.taskRequirements = this.newTask.taskRequirement;
-  
+      // console.log(this.task);
       this.responseData = this.taskService.createTask(this.selectedProject.projectId, this.task);
       this.responseData.subscribe( (response) => {
         this.newTaskId = response;
+        // console.log(response);
         setTimeout( () => {
           this.assignTheTask();
         }, 20);
@@ -107,7 +110,7 @@ export class ViewAddTaskComponent implements OnInit {
     // console.log(this.taskOwner[0]);
     this.responseData = this.taskService.assignTask(this.assignTaskFormat);
     this.responseData.subscribe( (response) => {
-      console.log(response);
+      // console.log(response);
       this.notification.style.display = "block";
       setTimeout(()=>{
       this.notification.style.display = "none";

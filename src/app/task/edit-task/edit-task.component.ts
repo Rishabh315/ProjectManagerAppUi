@@ -89,11 +89,11 @@ export class EditTaskComponent implements OnInit {
     this.responseData = this.taskService.deleteTaskById(this.selectedTask.taskId);
     this.responseData.subscribe( (response) => {
       this.displayWarning = true;
+      document.getElementById("warning-task").innerText = "Task Deleted Successfully";
     });
-    document.getElementById("Warning").innerText = "Task Deleted Successfully";
       setTimeout( () => {
         this.hidePopUp();
-      }, 1500);
+      }, 2000);
   }
 
   hidePopUp(){

@@ -213,7 +213,7 @@
     box-shadow: 0px 0px 8px 4px rgb(73, 192, 62);
 }
 
-  #task_delete #message_container #Warning{
+  #task_delete #message_container #warning-task{
     text-align: center;
     color: red;
     margin:20px auto;

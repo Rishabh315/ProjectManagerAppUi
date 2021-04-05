@@ -108,10 +108,9 @@ export class ManagerPageComponent implements OnInit {
   deleteProjectById(){
     this.responseData = this.projectService.deleteProjectById(this.deleteProject.projectId);
     this.responseData.subscribe( (response) => {
-      document.getElementById("Warning").innerText = "Project Deleted Successfully with its tasks";
+      document.getElementById("warning-project").innerText = "Project Deleted Successfully with its tasks";
       setTimeout( () => {
         this.hidePopUp();
-        document.getElementById("Warning").innerText = "Project Deleted Successfully with its tasks";
       }, 1500);
     });
   }

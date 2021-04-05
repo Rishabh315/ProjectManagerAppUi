@@ -32,7 +32,7 @@ export class EmployeePageComponent implements OnInit {
     setTimeout(()=>{
      this.user = this.userService.getUserDetails();
      this.getAllUserTasks(this.user.userId);
-    },50);
+    },20);
   }
 
   getAllUserTasks(userId: number){
